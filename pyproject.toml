@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tilavet-aligner"
+version = "0.1.0"
+description = "Monotonic / CTC forced-alignment helpers for the Tilavet Quran teleprompter pipeline."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Tilavet", email = "web3alkan@gmail.com" }]
+license = { text = "MIT" }
+keywords = [
+    "quran",
+    "alignment",
+    "forced-alignment",
+    "ctc",
+    "viterbi",
+    "phoneme",
+    "tajwid",
+    "arabic",
+    "speech-recognition",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+    "Natural Language :: Arabic",
+]
+
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/tialkan/tilavet-aligner"
+Documentation = "https://github.com/tialkan/tilavet-aligner#readme"
+Repository = "https://github.com/tialkan/tilavet-aligner"
+Issues = "https://github.com/tialkan/tilavet-aligner/issues"
+Companion = "https://github.com/tialkan/tilavet-phonemizer"
+
+[project.scripts]
+tilavet-align = "tilavet_aligner.cli:main"
+
+[project.optional-dependencies]
+posterior = [
+    "numpy>=1.24",
+]
+phonemizer = [
+    "tilavet-phonemizer>=0.2.0",
+]
+dev = [
+    "numpy>=1.24",
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1.0",
+    "tilavet-phonemizer>=0.2.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
